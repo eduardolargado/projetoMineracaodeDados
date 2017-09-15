@@ -1,0 +1,61 @@
+<!DOCTYPE html lang="pt-br">
+<html>
+
+
+	<head>
+		<title>Formulários</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/formularios.css">
+		<link rel="icon" href="img/icon.png">
+	</head>
+
+
+	<body>
+		<!-- ======== Cabeçalho ========== -->
+		<header id="cabecalho">
+			<button class="botao">Enviar</button>
+		</header><!-- ======== Fim do cabeçalho ==========-->
+
+		<div class="container">
+
+			<div class="area">
+				<div class="opcoes">
+					<a>Perguntas</a>
+					<a>Respostas</a>
+				</div>
+			</div>
+			<!-- ============== Campo de Título ===============-->
+			<form class="titulo" >
+				<input type="text" name="titulo" placeholder="Título do formulário" maxlength="30"><br><br>
+				<input type="text" name="descricao" placeholder="Descrição do formulário" maxlength="30" size="90%">
+			</form>
+
+			<!-- ============== Campo de resposta ===============-->
+
+			<form class="questoes">
+				<input type="text" name="pergunta" placeholder="Pergunta"><!-- Campo de pergunta-->
+
+				<select><!-- Campo de opções -->
+					<option>Resposta Curta</option>
+					<option>Parágrafo</option>
+					<option>Múltipla Escolha</option>
+					<option>Caixas de Seleção</option>
+				</select>
+			</form><br>
+
+			<form class="resposta"><!-- Campo de resposta-->
+				<input type="text" name="resposta">
+			</form><br>
+
+			<div class="barra-inferior">
+				 <div class="area-obrigatorio">
+				 	<label class="obrigatorio" for="obrigatorio"><strong>OBRIGATÓRIA</strong></label>
+				 	<input type="checkbox" name="obrigatorio" id="obrigatorio">
+				 </div>
+			</div>
+		</div>
+
+	</body>
+
+
+</html>
