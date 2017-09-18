@@ -34,6 +34,19 @@
 				$("#base").append("<div id=" + cont + ">"+linha+"</div>");
 				$('#contador').val(cont);
 				
+				var linha = [
+				"<div id=" + cont + ">" +
+				"<input type='text' name='pergunta" + cont + "' id='pergunta' placeholder='Pergunta'>" +
+				"<select name='selecionar' id='selecionar'>" +
+				"<option value='1'>Tipo de resposta</option>" +
+				"<option value='2'>Campo de texto</option>" +
+				"<option value='3'>Múltipla Escolha</option>" +
+				"<option value='4'>Caixas de Seleção</option>" +
+				"</select></div>"];
+				$("#base").append(linha);
+				alert(linha[cont]);
+				$('#contador').val(cont);
+				
 				
 				
 				
