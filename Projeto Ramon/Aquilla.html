@@ -21,6 +21,7 @@
 		$(document).ready(function(){
 		var cont = 0
 		$('#divParaCopia').css("display","none");
+		$('#divEscolhaRadio').css("display","none");
 		$('#campoEscondido').css("display","none");
 			$("#duplicar").click(function() {
 				cont++;
@@ -52,6 +53,12 @@
 			alert("Não existe perguntas para remover");
 			}
         });
+		
+		$('input').change(function(){
+				var option = $('input[type="radio"]:checked').val();
+				alert(option);
+
+				});
 
 
 
@@ -104,18 +111,19 @@
 		<form class="questoes">
 		<!-- ====== Campo de pergunta ====== -->
 		<input type="text" name="pergunta" id="pergunta" placeholder="Pergunta">
-		<select id="selecionar"><!-- Campo de opções -->
-		<option value="0">Tipo de resposta</option>
-		<option value="1">Campo de texto</option>
-		<option value="2">Múltipla Escolha</option>
-		<option value="3">Caixas de Seleção</option>
+		<select name="selecionar" id="selecionar"><!-- Campo de opções -->
+		<option value="100">Tipo de resposta</option>
+		<option value="200">Campo de texto</option>
+		<option value="300">Múltipla Escolha</option>
+		<option value="400">Caixas de Seleção</option>
 		</select>
-		<label class="obrigatorio" for="obrigatorio">OBRIGATÓRIA</label>
-		<input type="checkbox" name="obrigatorio" id="obrigatorio">
 		</form>
-
 		</div><!-- Fim da Copia -->
 		<div id="campoEscondido"><input name="contador" id="contador" type="hidden" value=""></div>
+		<div id="divEscolhaRadio">
+		<select name="escolhaRadio" id="escolhaRadio" />
+		<option value="0"></option>
+		</div>
 		</body>
 
 
