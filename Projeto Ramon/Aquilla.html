@@ -1,0 +1,158 @@
+<!DOCTYPE html lang="pt-br">
+<html>
+
+
+	<head>
+		<!-- ========== Título ============ -->
+		<title>Formulários</title>
+
+		<!-- ========== Metas ============ -->
+		<meta charset="utf-8">
+
+		<!-- ========== Links ============ -->
+		<link rel="stylesheet" href="css/formularios.css">
+		<link rel="icon" href="img/icon.png">
+
+		<!-- ========== Scripts ============ -->
+
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+ 
+		<script>
+			$(document).ready(function() {
+			 
+			$("#duplicar").click(function() {
+			linha = $("#copia").html();
+			$("#base").append("<br />"+linha+"<br />");
+			});
+
+			 
+		
+			$("#base").on('click', '.excluir', function(){
+        $("#copia").remove();
+        });
+        });
+
+    	</script>
+		
+		<!-- ========= Função para mostrar e esconder os inputs ========== -->
+		<script type="text/javascript">
+			function Mudarestado(posicao-opcoes) {
+			  var display = document.getElementById(posicao-opcoes).style.display;
+			  if (display == "none")
+			    document.getElementById(el).style.display = 'block';
+			  else
+			    document.getElementById(el).style.display = 'none';
+}
+
+		<script>
+
+		$(document).ready(function(){	
+
+		 $("#selecionar").change(function() {
+		  if($(this).val() == "1")
+		 {
+		   $("#resposta").show();
+		  }
+		  else
+		  {
+		   $("#resposta").hide();
+		  }
+
+		  if($(this).val() == "2")
+		 {
+		   $("#opcao").show();
+		  }
+		  else
+		  {
+		   $("#opcao").hide();
+		  }
+
+		  if($(this).val() == "3")
+		 {
+		   $("#multipla").show();
+		  }
+		  else
+		  {
+		   $("#multipla").hide();
+		  }
+		 });
+
+
+		});
+
+		</script>
+
+	</head>
+
+
+	<body>
+		<!-- ======== Cabeçalho ========== -->
+		<header id="cabecalho">
+			<button class="botao">Enviar</button>
+		</header><!-- ======== Fim do cabeçalho ==========-->
+		<!-- ====== container ====== -->
+		<div class="container">
+
+			<div class="area">
+				<div class="opcoes">
+					<a>Perguntas</a>
+					<a>Respostas</a>
+				</div>
+			</div>
+			<!-- ============== Campo de Título ===============-->
+			<form class="titulo" >
+				<input type="text" name="titulo" placeholder="Título do formulário" maxlength="30"><br><br>
+				<input type="text" name="descricao" placeholder="Descrição do formulário" maxlength="30" size="90%">
+			</form>
+
+			<!-- ============== Campo de resposta ===============-->
+			<div id="base">
+			<div id="copia">
+			<form class="questoes">
+
+				<!-- ====== Campo de pergunta ====== -->
+				<input type="text" name="pergunta" placeholder="Pergunta">
+
+				<select id="selecionar"><!-- Campo de opções -->
+					<option></option>
+					<option value="1">Campo de texto</option>
+					<option value="2">Múltipla Escolha</option>
+					<option value="3">Caixas de Seleção</option>
+				</select>
+
+			</form><br>
+
+			<!-- ====== Campo de resposta ====== -->
+			<form class="resposta">
+				<div class="posicao-opcoes" id="posicao-opcoes" onload="function Mudarestado()">
+					<input type="text" id="resposta" placeholder="Texto">
+					<div id="opcao"><input type="radio"><input type="text" placeholder=" Opção" size="50px"></div>
+					<div id="multipla"><input type="checkbox" ><input type="text" placeholder=" Opção"></div>
+				</div>
+			</form><br>
+
+			<div class="barra-inferior">
+				
+				 <div class="area-obrigatorio">
+				 	<label class="obrigatorio" for="obrigatorio">OBRIGATÓRIA</label>
+				 	<input type="checkbox" name="obrigatorio" id="obrigatorio">
+				 </div>
+
+				 <div class="area-botoes">
+					<img src="img/Defult Text.png" class="dublicar" id="duplicar">		
+					<img src="img/delete_remove_bin_icon-icons.com_72400.png" class="excluir" id="exclusao">
+				</div>
+
+				
+
+
+			</div><!-- Fim da barra inferior -->
+		</div><!-- Fim da Copia -->
+		</div><!-- Fim da Base -->
+	</div><!-- Fim do container -->	
+
+	</body>
+
+
+</html>
