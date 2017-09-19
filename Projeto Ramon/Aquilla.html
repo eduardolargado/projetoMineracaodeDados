@@ -19,34 +19,38 @@
 
 		<script type="text/javascript">
 		$(document).ready(function(){
+		var linha = [];
 		var cont = 0
 		$('#divParaCopia').css("display","none");
 		$('#divEscolhaRadio').css("display","none");
 		$('#campoEscondido').css("display","none");
 			$("#duplicar").click(function() {
-				cont++;
+				
 				$('#base').css("display","block");
 				$('#menu').css("display","block");
 				document.getElementById("titulo").disabled = true;
 				document.getElementById("descricao").disabled = true;
 				
-				var linha = [$("#divParaCopia").html()];
+				/*var linha = [$("#divParaCopia").html()];
 				$("#base").append("<div id=" + cont + ">"+linha+"</div>");
-				$('#contador').val(cont);
+				$('#contador').val(cont);*/
 				
-				var linha = [
-				"<div id=" + cont + ">" +
-				"<input type='text' name='pergunta" + cont + "' id='pergunta' placeholder='Pergunta'>" +
-				"<select name='selecionar' id='selecionar'>" +
+				linha[cont] = "<div id="+cont+"><input type='text' name='pergunta"+cont+"' id='pergunta"+cont+"' placeholder='Pergunta'>" +
+				"<select name='selecionar"+cont+"' id='selecionar"+cont+"'>" +
 				"<option value='1'>Tipo de resposta</option>" +
 				"<option value='2'>Campo de texto</option>" +
 				"<option value='3'>Múltipla Escolha</option>" +
 				"<option value='4'>Caixas de Seleção</option>" +
-				"</select></div>"];
-				$("#base").append(linha);
-				alert(linha[cont]);
+				"</select></div>";
+				$("#base").append(linha[cont]);
 				$('#contador').val(cont);
-				
+
+				if(cont >= 0)
+				for(var i = 0; i <= cont; i++)
+				{
+				alert(linha[i]);
+				}
+				cont++;
 				
 				
 				
@@ -55,15 +59,11 @@
 		});
 		
 		$("#menu").on('click', '.excluir', function(){
-			if(cont > 0){
+			if(cont >= 0){
 			var contInt = parseInt($('#contador').val());
 			$("#" + contInt + "").remove();
 			cont -= 1;
 			$('#contador').val(cont);
-			}
-			else
-			{
-			alert("Não existe perguntas para remover");
 			}
         });
 
