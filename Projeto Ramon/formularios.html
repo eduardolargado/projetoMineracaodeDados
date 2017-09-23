@@ -1,158 +1,167 @@
-<!DOCTYPE html lang="pt-br">
-<html>
+﻿<!DOCTYPE html lang="pt-br">
+        <html>
 
 
-	<head>
-		<!-- ========== Título ============ -->
-		<title>Formulários</title>
+        <head>
+        <!-- ========== Título ============ -->
+        <title>Formulários</title>
 
-		<!-- ========== Metas ============ -->
-		<meta charset="utf-8">
+        <!-- ========== Metas ============ -->
+        <meta charset="utf-8">
 
-		<!-- ========== Links ============ -->
-		<link rel="stylesheet" href="css/formularios.css">
-		<link rel="icon" href="img/icon.png">
+        <!-- ========== Links ============ -->
+        <link rel="stylesheet" href="css/formularios.css">
+        <link rel="icon" href="img/icon.png">
 
-		<!-- ========== Scripts ============ -->
+        <!-- ========== Scripts ============ -->
 
-		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
- 
-		<script>
-			$(document).ready(function() {
-			 
-			$("#duplicar").click(function() {
-			linha = $("#copia").html();
-			$("#base").append("<br />"+linha+"<br />");
-			});
+        <script type="text/javascript">
+        $(document).ready(function(){
+        var cont = 0
+        $('#divParaCopia').css("display","none");
+        $('#campoEscondido').css("display","none");
+            $("#duplicar").click(function() {
+                cont++;
+                $('#base').css("display","block");
+                $('#menu').css("display","block");
+                
+                var linha = [$("#divParaCopia").html()];
+                $("#base").append("<div id=" + cont + ">"+linha+"</div>");
+                $('#contador').val(cont);
+                
+                var linha = [
+                "<div id=" + cont + ">" +
+                "<input type='text' name='pergunta" + cont + "' id='pergunta' placeholder='Pergunta'>" +
+                "<select name='selecionar' id='selecionar'>" +
+                "<option value='1'>Tipo de resposta</option>" +
+                "<option value='2'>Campo de texto</option>" +
+                "<option value='3'>Múltipla Escolha</option>" +
+                "<option value='4'>Caixas de Seleção</option>" +
+                "</select></div>"];        
+                
 
-			 
-		
-			$("#base").on('click', '.excluir', function(){
-        $("#copia").remove();
+        });
+        
+        $("#menu").on('click', '.excluir', function(){
+            if(cont > 0){
+            var contInt = parseInt($('#contador').val());
+            $("#" + contInt + "").remove();
+            cont -= 1;
+            $('#contador').val(cont);
+            }
+            else
+            {
+            alert("Não existe perguntas para remover");
+            }
         });
         });
 
-    	</script>
-		
-		<!-- ========= Função para mostrar e esconder os inputs ========== -->
-		<script type="text/javascript">
-			function Mudarestado(posicao-opcoes) {
-			  var display = document.getElementById(posicao-opcoes).style.display;
-			  if (display == "none")
-			    document.getElementById(el).style.display = 'block';
-			  else
-			    document.getElementById(el).style.display = 'none';
-}
 
-		<script>
+        </script>
 
-		$(document).ready(function(){	
-
-		 $("#selecionar").change(function() {
-		  if($(this).val() == "1")
-		 {
-		   $("#resposta").show();
-		  }
-		  else
-		  {
-		   $("#resposta").hide();
-		  }
-
-		  if($(this).val() == "2")
-		 {
-		   $("#opcao").show();
-		  }
-		  else
-		  {
-		   $("#opcao").hide();
-		  }
-
-		  if($(this).val() == "3")
-		 {
-		   $("#multipla").show();
-		  }
-		  else
-		  {
-		   $("#multipla").hide();
-		  }
-		 });
+        </head>
 
 
-		});
-
-		</script>
-
-	</head>
+        <body>
 
 
-	<body>
-		<!-- ======== Cabeçalho ========== -->
-		<header id="cabecalho">
-			<button class="botao">Enviar</button>
-		</header><!-- ======== Fim do cabeçalho ==========-->
-		<!-- ====== container ====== -->
-		<div class="container">
-
-			<div class="area">
-				<div class="opcoes">
-					<a>Perguntas</a>
-					<a>Respostas</a>
-				</div>
-			</div>
-			<!-- ============== Campo de Título ===============-->
-			<form class="titulo" >
-				<input type="text" name="titulo" placeholder="Título do formulário" maxlength="30"><br><br>
-				<input type="text" name="descricao" placeholder="Descrição do formulário" maxlength="30" size="90%">
-			</form>
-
-			<!-- ============== Campo de resposta ===============-->
-			<div id="base">
-			<div id="copia">
-			<form class="questoes">
-
-				<!-- ====== Campo de pergunta ====== -->
-				<input type="text" name="pergunta" placeholder="Pergunta">
-
-				<select id="selecionar"><!-- Campo de opções -->
-					<option></option>
-					<option value="1">Campo de texto</option>
-					<option value="2">Múltipla Escolha</option>
-					<option value="3">Caixas de Seleção</option>
-				</select>
-
-			</form><br>
-
-			<!-- ====== Campo de resposta ====== -->
-			<form class="resposta">
-				<div class="posicao-opcoes" id="posicao-opcoes" onload="function Mudarestado()">
-					<input type="text" id="resposta" placeholder="Texto">
-					<div id="opcao"><input type="radio"><input type="text" placeholder=" Opção" size="50px"></div>
-					<div id="multipla"><input type="checkbox" ><input type="text" placeholder=" Opção"></div>
-				</div>
-			</form><br>
-
-			<div class="barra-inferior">
-				
-				 <div class="area-obrigatorio">
-				 	<label class="obrigatorio" for="obrigatorio">OBRIGATÓRIA</label>
-				 	<input type="checkbox" name="obrigatorio" id="obrigatorio">
-				 </div>
-
-				 <div class="area-botoes">
-					<img src="img/Defult Text.png" class="dublicar" id="duplicar">		
-					<img src="img/delete_remove_bin_icon-icons.com_72400.png" class="excluir" id="exclusao">
-				</div>
-
-				
 
 
-			</div><!-- Fim da barra inferior -->
-		</div><!-- Fim da Copia -->
-		</div><!-- Fim da Base -->
-	</div><!-- Fim do container -->	
 
-	</body>
+        <!-- ======== Cabeçalho ========== -->
+        <header id="cabecalho">
+
+            <a href="menu-usuario.html"><img src="img/6980_256x256.png" id="botao-voltar" title="Voltar para o formulário principal"></a>
+            <h2>Formulários Facima</h2>
+            <button class="botao">Enviar</button>
+
+        </header><!-- ======== Fim do cabeçalho ==========-->
 
 
-</html>
+
+        
+
+
+        <!-- ====== container ====== -->
+
+
+        <div class="container">
+
+        <div class="area" align="center">
+        <br>
+        <h1>Seu formulário</h1>
+        <br>
+        </div>
+        <!-- ============== Campo de Título ===============-->
+        <form class="titulo" >
+        <input type="text" name="titulo" id="titulo" placeholder="Título do formulário" maxlength="30"><br><br>
+        <input type="text" name="descricao" id="descricao" placeholder="Descrição do formulário" maxlength="30" size="90%"><br><br>
+        </form>
+        <br><br>
+
+        <!-- ============== Campo de resposta ===============-->
+        <div id="base">
+        
+        </div><!-- Fim da Base -->
+        <div class="barra-inferior" id="menu">
+
+        <div class="area-botoes">
+        <img src="img/Defult Text.png" class="dublicar" id="duplicar" title="adicionar uma pergunta">       
+        <img src="img/delete_remove_bin_icon-icons.com_72400.png" class="excluir" id="exclusao" title="excluir a ultima pergunta adicionada">
+        </div>
+
+
+
+
+        </div><!-- Fim da barra inferior -->
+        </div><!-- Fim do container -->
+        <div id="divParaCopia">
+        <form class="questoes">
+        <!-- ====== Campo de pergunta ====== -->
+        <input type="text" name="pergunta" id="pergunta" placeholder="Pergunta">
+        <select name="selecionar" id="selecionar"><!-- Campo de opções -->
+        <option value="100">Tipo de resposta</option>
+        <option value="200">Campo de texto</option>
+        <option value="300">Múltipla Escolha</option>
+        <option value="400">Caixas de Seleção</option>
+        </select>
+        </form>
+        <!-- =============== Campo dos Inputs =================-->
+        <form class="opcoes" id="formulario-inputs">
+            <div class="area-inputs" id="area-inputs">
+                <!-- ============= Campo de Texto =============-->
+                <input type="text" name="campo-de-texto" placeholder=" Resposta" id="resposta-usuario"><br>
+                <!-- ============= Campo do Radio =============-->
+                <div id="baseRadio">
+                    <div id="divParaCopiaRadio"><input type="radio" name="campo de multipla escolha"><input type="text" name="opcao-radio"></div><br>
+                    
+                    <div class="area-adicionar-remover">
+                        <button class="adicionar-azul" title="Adiciona mais uma opção">Adicionar Opção</button>
+                        <button class="remover-vermelho" title="Remove a última opção">Remover Opção</button>
+                    </div>
+                </div>
+                <!-- ============= Campo do Checkbox =============-->
+               
+                <div id="baseCheckbox">
+                    <div id="divParaCopiaCheckbox"><input type="checkbox" name="escolha alternada"><input type="text" name="opcao-checkbox"></div>
+
+
+                    <div class="area-adicionar-remover">
+                        <button class="adicionar-azul" title="Adiciona mais uma opção">Adicionar Opção</button>
+                        <button class="remover-vermelho" title="Remove a última opção">Remover Opção</button>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </form><!-- Fim do campo dos inputs -->
+        </div><!-- Fim da Copia -->
+
+
+        <div id="campoEscondido"><input name="contador" id="contador" type="hidden" value=""></div>
+        </body>
+
+
+        </html>

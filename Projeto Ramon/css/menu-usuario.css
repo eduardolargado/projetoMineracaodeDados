@@ -41,8 +41,32 @@ body{
 
 .area-formulario{
 	background: #ffffff;
-	width: 80%;
-	margin: 90px auto 10px auto;
+	width: 1000px;
 	height: 550px;
 	overflow-y: auto;
+	float: left;
+}
+
+.area-principal{
+	width: 80%;
+	height: 550px;
+	margin: 90px auto 10px auto;
+	display: table;
+	
+}
+
+.botao{
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	border: none;
+	font-size: 30px;
+	background: #0066ff;
+	color: #ffffff;
+	float: right;
+	margin: 480px 20px 0px 0px;
+}
+
+.botao:hover{
+	background: #0047b3;
 }

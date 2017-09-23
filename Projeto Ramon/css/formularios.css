@@ -8,11 +8,12 @@ body{
 	background: url(../img/forms_processing.jpg) center no-repeat;
 	background-attachment: fixed;
 
-
 }
+
 #cabecalho {
 	width:100%;
 	height: 70px;
+	position: absolute;
 	top:0;
 	background: rgba(255,255,255,0.5);
 }
@@ -23,20 +24,22 @@ body{
 	border: none;
 	background:#0066ff;
 	color: #ffffff;
-	font-size: 15px;
 	border-radius: 6px;
 	font-size: 16px;
 	float: right;
 	margin: 15px 30px 0px 0px;
 }
 
+
 .botao:hover{
 	background:#0047b3;
 }
+
+
 .container {
 	background: #ffffff;
 	width: 800px;
-	margin: 30px auto 0px auto;
+	margin: 90px auto 0px auto;
 	border:1px solid #bfbfbf;
 
 }
@@ -176,4 +179,61 @@ select {
 
 .posicao-opcoes{
 	height: auto;
+}
+
+
+.botao-x{
+	background: none;
+	border: none;
+	font-size: 20px;
+	width: 50px;
+	height: 30px;
+	border: red;
+}
+
+#botao-voltar{
+	width: 45px;
+	height: 45px;
+	margin: 10px 0px 0px 30px;
+	float: left;
+}
+
+h2{
+	float: left;
+	margin: 19px 0px 0px 30px;
+
+}
+
+.opcoes input[type=text]{
+	border:none;
+	height: 40px;
+	width: 40%;
+	width: 300px;
+}
+
+.opcoes {
+	padding-bottom: 10px;
+	margin:0px 0px 0px 70px; 
+
+}
+
+.area-inputs{
+	width: 400px;
+}
+
+.area-adicionar-remover{
+	width: 230px;
+}
+
+.adicionar-azul{
+	border: none;
+	color:#1a1aff;
+	background: none;
+}
+
+.remover-vermelho{
+	border: none;
+	color:#ff1a1a;
+	background: none;
+
 }
