@@ -39,9 +39,51 @@
                 "<option value='2'>Campo de texto</option>" +
                 "<option value='3'>Múltipla Escolha</option>" +
                 "<option value='4'>Caixas de Seleção</option>" +
-                "</select></div>"];        
-                
+                "</select></div>"];   
 
+                  
+                 
+                  $("#selecionar").change(function() {
+
+    if($(this).val() == "200" || $(this).val() == "300" || $(this).val() == "400"){
+    if($(this).val() == "200")
+   {
+    $("#formulario-inputs " ).css("display","initial");
+     $("#resposta-usuario").show();
+    }
+    else
+    {
+     $("#resposta-usuario").hide();
+    }
+
+    if($(this).val() == "300")
+   {
+    $("#formulario-inputs " ).css("display","initial");
+     $("#baseRadio").show();
+    }
+    else
+    {
+     $("#baseRadio").hide();
+    }
+
+    if($(this).val() == "400")
+   {
+    $("#formulario-inputs " ).css("display","initial");
+     $("#baseCheckbox").show();
+    }
+    else
+    {
+     $("#baseCheckbox").hide();
+    }
+    }
+    else
+    {
+           $("#formulario-inputs ").css("display","none");
+    }
+   });
+
+
+                
         });
         
         $("#menu").on('click', '.excluir', function(){
@@ -132,9 +174,9 @@
         <form class="opcoes" id="formulario-inputs">
             <div class="area-inputs" id="area-inputs">
                 <!-- ============= Campo de Texto =============-->
-                <input type="text" name="campo-de-texto" placeholder=" Resposta" id="resposta-usuario"><br>
+                <input type="text" name="campo-de-texto" placeholder=" Resposta" id="resposta-usuario" class="hide"><br>
                 <!-- ============= Campo do Radio =============-->
-                <div id="baseRadio">
+                <div id="baseRadio" class="hide">
                     <div id="divParaCopiaRadio"><input type="radio" name="campo de multipla escolha"><input type="text" name="opcao-radio"></div><br>
                     
                     <div class="area-adicionar-remover">
@@ -144,7 +186,7 @@
                 </div>
                 <!-- ============= Campo do Checkbox =============-->
                
-                <div id="baseCheckbox">
+                <div id="baseCheckbox" class="hide">
                     <div id="divParaCopiaCheckbox"><input type="checkbox" name="escolha alternada"><input type="text" name="opcao-checkbox"></div>
 
 
