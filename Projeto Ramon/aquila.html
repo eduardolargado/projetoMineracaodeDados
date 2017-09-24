@@ -18,10 +18,14 @@
 		
 
         <script type="text/javascript">
+		function verificaArray(posicao){
+		document.getElementById("posicaoArray").value = posicao;
+}
         $(document).ready(function(){
         var arrayConteudo = [];
         var cont = 0;
         $('#campoEscondido').css("display","none");
+        $('#campoEscondidoDois').css("display","none");
             $("#duplicar").click(function() {
                 
                 $('#base').css("display","block");
@@ -31,7 +35,7 @@
                                 
                 arrayConteudo[cont] = "<div class='questoes' id='divPergunta"+cont+"'><input type='text' name='pergunta"+cont+"' id='pergunta"+cont+"' placeholder='Pergunta'>" +
                 "<select name='selecionar"+cont+"' id='selecionar"+cont+"'>" +
-                "<option value='tipoResposta'>Tipo de resposta</option>" +
+                "<option value='tipoResposta' selected='selected' onClick="+verificaArray(cont)+">Tipo de resposta</option>" +
                 "<option value='campoTexto' id='campoTexto"+cont+"' name='campoTexto"+cont+"'>Campo de Texto</option>" +
                 "<option value='campoRadio' id='campoRadio"+cont+"' name='campoRadio"+cont+"'>Campo de Única Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao"+cont+"' name='campoSelecao"+cont+"'>Caixas de Seleção</option>" +
@@ -54,10 +58,9 @@
 		
 		
 		$(document).on('change','.questoes', function(){
+		 var i = parseInt($('#posicaoArray').val());
+		 
 		 var contInt = parseInt($('#contador').val());
-
-		 for(var i = 0; i <= contInt; i++)
-		 {
 			 recebeDiv = "selecionar" + i;
 			 var recebeInput = $("#"+recebeDiv+"").val();
 			 
@@ -117,7 +120,6 @@
                 "</select></div>";
 			 			 
 			 }
-		 };
 		 $("#base").text("");
 		 for(var i = 0; i <= contInt; i++)
 		 {
@@ -166,7 +168,9 @@
         </div><!-- Fim da barra inferior -->
         </div><!-- Fim do container -->
 
-        <div id="campoEscondido"><input name="contador" id="contador" type="hidden" value="">
+        <div id="campoEscondido"><input name="contador" id="contador" type="hidden" value=""><input name="posicaoArray" id="posicaoArray" type="hidden" value="">
+		</div>
+		<div id="campoEscondidoDois"><input name="posicaoArray" id="posicaoArray" type="hidden" value="">
 		</div>
         </body>
 
