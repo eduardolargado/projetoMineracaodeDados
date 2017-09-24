@@ -73,15 +73,25 @@
 			 
 			 else if(recebeInput == "campoRadio")
 			 {
-			 var quantidade=prompt("Selecione a quantidade de opções:");
 			 arrayConteudo[i] = "<div class='questoes' id='divPergunta"+i+"'><input type='text' name='pergunta"+i+"' id='pergunta"+i+"' placeholder='Pergunta'>" +
                 "<select name='selecionar"+i+"' id='selecionar"+i+"'>" +
                 "<option value='tipoResposta'>Tipo de resposta</option>" +
                 "<option value='campoTexto' id='campoTexto' name='campoTexto'>Campo de texto</option>" +
                 "<option value='campoRadio' id='campoRadio' name='campoRadio' selected='selected'>Múltipla Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao' name='campoSelecao'>Caixas de Seleção</option>" +
-                "</select><input type='radio' name='campo de multipla escolha'><input type='text' name='opcao-radio'></div>";
+                "</select><br>";
 			 
+			 var quantidade = prompt("Digite a quantidade de opções:");
+			 for(var x = 0; x < quantidade; x++)
+			 {
+			 var valorMaisUm = x + 1;
+			 var nomeRadio = prompt("Escreva o valor da opção de Número: " + valorMaisUm);
+			 var valorRadio = arrayConteudo[i] + "<input type='radio' name='radio"+i+"' value='"+nomeRadio+"'>"+nomeRadio+"<br>";
+			 arrayConteudo[i] = valorRadio;
+			 }
+			 var fecharDiv = arrayConteudo[i] + "</div>";
+			 arrayConteudo[i] = fecharDiv;
+			 alert(arrayConteudo[i]);
 			 }
 			 
 			 else if(recebeInput == "campoSelecao")
