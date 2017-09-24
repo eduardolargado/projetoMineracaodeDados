@@ -1,0 +1,163 @@
+<!DOCTYPE html lang="pt-br">
+        <html>
+        <head>
+        <!-- ========== Título ============ -->
+        <title>Formulários</title>
+
+        <!-- ========== Metas ============ -->
+        <meta charset="utf-8">
+
+        <!-- ========== Links ============ -->
+        <link rel="stylesheet" href="css/formularios.css">
+        <link rel="icon" href="img/icon.png">
+
+        <!-- ========== Scripts ============ -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
+		
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+        var arrayConteudo = [];
+        var cont = 0;
+        $('#campoEscondido').css("display","none");
+            $("#duplicar").click(function() {
+                
+                $('#base').css("display","block");
+                $('#menu').css("display","block");
+                document.getElementById("titulo").disabled = true;
+                document.getElementById("descricao").disabled = true;
+                                
+                arrayConteudo[cont] = "<div class='questoes' id='divPergunta"+cont+"'><input type='text' name='pergunta"+cont+"' id='pergunta"+cont+"' placeholder='Pergunta'>" +
+                "<select name='selecionar"+cont+"' id='selecionar"+cont+"'>" +
+                "<option value='tipoResposta'>Tipo de resposta</option>" +
+                "<option value='campoTexto' id='campoTexto' name='campoTexto'>Campo de texto</option>" +
+                "<option value='campoMultipla' id='campoMultipla' name='campoMultipla'>Múltipla Escolha</option>" +
+                "<option value='campoSelecao' id='campoSelecao' name='campoSelecao'>Caixas de Seleção</option>" +
+                "</select></div>";
+                $("#base").append(arrayConteudo[cont]);
+                $('#contador').val(cont);
+                cont++;        
+        });
+        
+        $("#menu").on('click', '.excluir', function(){
+            if(cont >= 0){
+            var contInt = parseInt($('#contador').val());
+            $("#divPergunta" + contInt + "").remove();
+			arrayConteudo.splice(contInt);
+			if(cont != 0)
+			cont -= 1;
+            $('#contador').val(cont);
+            }
+        });
+		
+		
+		$(document).on('change','.questoes', function(){
+		 var contInt = parseInt($('#contador').val());
+		 for(var i = 0; i <= contInt; i++)
+		 {
+			 recebeDiv = "selecionar" + i;
+			 var recebeInput = $("#"+recebeDiv+"").val();
+			 
+			 if(recebeInput == "campoTexto")
+			 {
+			 arrayConteudo[i] = "<div class='questoes' id='divPergunta"+i+"'><input type='text' name='pergunta"+i+"' id='pergunta"+i+"' placeholder='Pergunta'>" +
+					"<select name='selecionar"+i+"' id='selecionar"+i+"'>" +
+					"<option value='tipoResposta'>Tipo de resposta</option>" +
+					"<option value='campoTexto' id='campoTexto' name='campoTexto' selected='selected'>Campo de texto</option>" +
+					"<option value='campoMultipla' id='campoMultipla' name='campoMultipla'>Múltipla Escolha</option>" +
+					"<option value='campoSelecao' id='campoSelecao' name='campoSelecao'>Caixas de Seleção</option>" +
+					"</select> <input type='text' name='campo-de-texto"+i+"' placeholder='Resposta' id='campo-de-texto"+i+"' class='hide' value=''></div>";
+			 }			
+			 
+			 else if(recebeInput == "campoMultipla")
+			 {
+			 arrayConteudo[i] = "<div class='questoes' id='divPergunta"+i+"'><input type='text' name='pergunta"+i+"' id='pergunta"+i+"' placeholder='Pergunta'>" +
+                "<select name='selecionar"+i+"' id='selecionar"+i+"'>" +
+                "<option value='tipoResposta'>Tipo de resposta</option>" +
+                "<option value='campoTexto' id='campoTexto' name='campoTexto'>Campo de texto</option>" +
+                "<option value='campoMultipla' id='campoMultipla' name='campoMultipla' selected='selected'>Múltipla Escolha</option>" +
+                "<option value='campoSelecao' id='campoSelecao' name='campoSelecao'>Caixas de Seleção</option>" +
+                "</select></div>";
+			 
+			 }
+			 
+			 else if(recebeInput == "campoSelecao")
+			 {
+			 arrayConteudo[i] = "<div class='questoes' id='divPergunta"+i+"'><input type='text' name='pergunta"+i+"' id='pergunta"+i+"' placeholder='Pergunta'>" +
+                "<select name='selecionar"+i+"' id='selecionar"+i+"'>" +
+                "<option value='tipoResposta'>Tipo de resposta</option>" +
+                "<option value='campoTexto' id='campoTexto' name='campoTexto'>Campo de texto</option>" +
+                "<option value='campoMultipla' id='campoMultipla' name='campoMultipla'>Múltipla Escolha</option>" +
+                "<option value='campoSelecao' id='campoSelecao' name='campoSelecao' selected='selected'>Caixas de Seleção</option>" +
+                "</select></div>";
+			 			 
+			 }
+			 
+			 else if(recebeInput == "tipoResposta")
+			 {
+			 arrayConteudo[i] = "<div class='questoes' id='divPergunta"+i+"'><input type='text' name='pergunta"+i+"' id='pergunta"+i+"' placeholder='Pergunta'>" +
+                "<select name='selecionar"+i+"' id='selecionar"+i+"'>" +
+                "<option value='tipoResposta' selected='selected'>Tipo de resposta</option>" +
+                "<option value='campoTexto' id='campoTexto' name='campoTexto'>Campo de texto</option>" +
+                "<option value='campoMultipla' id='campoMultipla' name='campoMultipla'>Múltipla Escolha</option>" +
+                "<option value='campoSelecao' id='campoSelecao' name='campoSelecao' >Caixas de Seleção</option>" +
+                "</select></div>";
+			 			 
+			 }
+		 };
+		 $("#base").text("");
+		 for(var i = 0; i <= contInt; i++)
+		 {
+			 $("#base").append(arrayConteudo[i]);
+		 }
+		
+		});
+		
+		
+        });
+
+        </script>
+
+        </head>
+
+
+        <body>
+        <!-- ======== Cabeçalho ========== -->
+        <header id="cabecalho">
+        <button class="botao">Enviar</button>
+        </header><!-- ======== Fim do cabeçalho ==========-->
+        <!-- ====== container ====== -->
+        <div class="container">
+        <div class="area" align="center">
+        <br>
+        <h1>Seu formulário</h1>
+        <br>
+        </div>
+        <!-- ============== Campo de Título ===============-->
+        <form class="titulo" >
+        <input type="text" name="titulo" id="titulo" placeholder="Título do formulário" maxlength="30"><br><br>
+        <input type="text" name="descricao" id="descricao" placeholder="Descrição do formulário" maxlength="30" size="90%"><br><br>
+        </form>
+        <br><br>
+
+        <!-- ============== Campo de resposta ===============-->
+        <div id="base">
+        <form id="perguntas">
+		
+        </div><!-- Fim da Base -->
+        <div class="barra-inferior" id="menu">
+        <div class="area-botoes">
+        <img src="img/Defult Text.png" class="dublicar" id="duplicar" title="adicionar uma pergunta">       
+        <img src="img/delete_remove_bin_icon-icons.com_72400.png" class="excluir" id="exclusao" title="excluir a ultima pergunta adicionada">
+        </div>
+        </div><!-- Fim da barra inferior -->
+        </div><!-- Fim do container -->
+
+        <div id="campoEscondido"><input name="contador" id="contador" type="hidden" value="">
+		</div>
+        </body>
+
+
+        </html>
