@@ -32,8 +32,8 @@
                 arrayConteudo[cont] = "<div class='questoes' id='divPergunta"+cont+"'><input type='text' name='pergunta"+cont+"' id='pergunta"+cont+"' placeholder='Pergunta'>" +
                 "<select name='selecionar"+cont+"' id='selecionar"+cont+"'>" +
                 "<option value='tipoResposta'>Tipo de resposta</option>" +
-                "<option value='campoTexto' id='campoTexto' name='campoTexto'>Campo de texto</option>" +
-                "<option value='campoMultipla' id='campoMultipla' name='campoMultipla'>Múltipla Escolha</option>" +
+                "<option value='campoTexto' id='campoTexto' name='campoTexto'>Campo de Texto</option>" +
+                "<option value='campoRadio' id='campoRadio' name='campoRadio'>Campo de Única Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao' name='campoSelecao'>Caixas de Seleção</option>" +
                 "</select></div>";
                 $("#base").append(arrayConteudo[cont]);
@@ -66,20 +66,21 @@
 					"<select name='selecionar"+i+"' id='selecionar"+i+"'>" +
 					"<option value='tipoResposta'>Tipo de resposta</option>" +
 					"<option value='campoTexto' id='campoTexto' name='campoTexto' selected='selected'>Campo de texto</option>" +
-					"<option value='campoMultipla' id='campoMultipla' name='campoMultipla'>Múltipla Escolha</option>" +
+					"<option value='campoRadio' id='campoRadio' name='campoRadio'>Múltipla Escolha</option>" +
 					"<option value='campoSelecao' id='campoSelecao' name='campoSelecao'>Caixas de Seleção</option>" +
 					"</select> <input type='text' name='campo-de-texto"+i+"' placeholder='Resposta' id='campo-de-texto"+i+"' class='hide' value=''></div>";
 			 }			
 			 
-			 else if(recebeInput == "campoMultipla")
+			 else if(recebeInput == "campoRadio")
 			 {
+			 var quantidade=prompt("Selecione a quantidade de opções:");
 			 arrayConteudo[i] = "<div class='questoes' id='divPergunta"+i+"'><input type='text' name='pergunta"+i+"' id='pergunta"+i+"' placeholder='Pergunta'>" +
                 "<select name='selecionar"+i+"' id='selecionar"+i+"'>" +
                 "<option value='tipoResposta'>Tipo de resposta</option>" +
                 "<option value='campoTexto' id='campoTexto' name='campoTexto'>Campo de texto</option>" +
-                "<option value='campoMultipla' id='campoMultipla' name='campoMultipla' selected='selected'>Múltipla Escolha</option>" +
+                "<option value='campoRadio' id='campoRadio' name='campoRadio' selected='selected'>Múltipla Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao' name='campoSelecao'>Caixas de Seleção</option>" +
-                "</select></div>";
+                "</select><input type='radio' name='campo de multipla escolha'><input type='text' name='opcao-radio'></div>";
 			 
 			 }
 			 
@@ -89,7 +90,7 @@
                 "<select name='selecionar"+i+"' id='selecionar"+i+"'>" +
                 "<option value='tipoResposta'>Tipo de resposta</option>" +
                 "<option value='campoTexto' id='campoTexto' name='campoTexto'>Campo de texto</option>" +
-                "<option value='campoMultipla' id='campoMultipla' name='campoMultipla'>Múltipla Escolha</option>" +
+                "<option value='campoRadio' id='campoRadio' name='campoRadio'>Múltipla Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao' name='campoSelecao' selected='selected'>Caixas de Seleção</option>" +
                 "</select></div>";
 			 			 
@@ -101,7 +102,7 @@
                 "<select name='selecionar"+i+"' id='selecionar"+i+"'>" +
                 "<option value='tipoResposta' selected='selected'>Tipo de resposta</option>" +
                 "<option value='campoTexto' id='campoTexto' name='campoTexto'>Campo de texto</option>" +
-                "<option value='campoMultipla' id='campoMultipla' name='campoMultipla'>Múltipla Escolha</option>" +
+                "<option value='campoRadio' id='campoRadio' name='campoRadio'>Múltipla Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao' name='campoSelecao' >Caixas de Seleção</option>" +
                 "</select></div>";
 			 			 
