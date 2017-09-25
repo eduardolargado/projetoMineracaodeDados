@@ -1,3 +1,5 @@
+<?php// include_once("conf/restricao.php");?>
+
 <!DOCTYPE html lang="pt-br">
         <html>
         <head>
@@ -30,12 +32,14 @@
                 
                 $('#base').css("display","block");
                 $('#menu').css("display","block");
+                //document.getElementById("titulo").disabled = true;
+                //document.getElementById("descricao").disabled = true;
                                 
                 arrayConteudo[cont] = "<div class='questoes' id='divPergunta"+cont+"'><input type='text' name='pergunta"+cont+"' id='pergunta"+cont+"' placeholder='Pergunta'>" +
                 "<select name='selecionar"+cont+"' id='selecionar"+cont+"'>" +
                 "<option value='tipoResposta' selected='selected' onClick="+verificaArray(cont)+">Tipo de resposta</option>" +
                 "<option value='campoTexto' id='campoTexto"+cont+"' name='campoTexto"+cont+"'>Campo de Texto</option>" +
-                "<option value='campoRadio' id='campoRadio"+cont+"' name='campoRadio"+cont+"'>Múltipla Escolha</option>" +
+                //"<option value='campoRadio' id='campoRadio"+cont+"' name='campoRadio"+cont+"'>Campo de Única Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao"+cont+"' name='campoSelecao"+cont+"'>Caixas de Seleção</option>" +
                 "</select></div>";
                 $("#base").append(arrayConteudo[cont]);
@@ -70,13 +74,7 @@
 					"<option value='campoTexto' id='campoTexto"+i+"' name='campoTexto"+i+"' selected='selected'>Campo de texto</option>" +
 					"<option value='campoRadio' id='campoRadio"+i+"' name='campoRadio"+i+"'>Múltipla Escolha</option>" +
 					"<option value='campoSelecao' id='campoSeleca"+i+"o' name='campoSelecao"+i+"'>Caixas de Seleção</option>" +
-					"</select> <input type='text' name='campo-de-texto"+i+"' placeholder='Resposta' id='campo-de-texto"+i+"' class='hide' value=''><br>";
-
-                
-             var valorText = arrayConteudo[i] + "<input type='text' name='text"+i+"'><br>";
-             arrayConteudo[i] = valorText;
-             var fecharDiv3 = arrayConteudo[i] + "</div>";
-             arrayConteudo[i] = fecharDiv3;
+					"</select> <input type='text' name='campo-de-texto"+i+"' placeholder='Resposta' id='campo-de-texto"+i+"' class='hide' value=''></div>";
 			 }			
 			 
 			 else if(recebeInput == "campoRadio")
@@ -109,18 +107,7 @@
                 "<option value='campoTexto' id='campoTexto"+i+"' name='campoTexto"+i+"'>Campo de texto</option>" +
                 "<option value='campoRadio' id='campoRadio"+i+"' name='campoRadio"+i+"'>Múltipla Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao"+i+"' name='campoSelecao"+i+"' selected='selected'>Caixas de Seleção</option>" +
-                "</select><br>";
-
-                var quantidade = prompt("Digite a quantidade de opções:");
-             for(var y = 0; y < quantidade; y++)
-             {
-             var valorMaisMais = y + 1;
-             var nomeCheckbox = prompt("Escreva o valor da opção de Número: " + valorMaisMais);
-             var valorCheckbox = arrayConteudo[i] + "<input type='checkbox' name='checkbox"+i+"' value='"+nomeCheckbox+"'>"+nomeCheckbox+"<br>";
-             arrayConteudo[i] = valorCheckbox;
-             }
-             var fecharDiv2 = arrayConteudo[i] + "</div>";
-             arrayConteudo[i] = fecharDiv2;
+                "</select></div>";
 			 			 
 			 }
 			 
