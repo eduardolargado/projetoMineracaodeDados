@@ -41,18 +41,17 @@ body{
 
 .area-formulario{
 	background: #ffffff;
-	width: 92%;
-	height: 700px;
+	width: 1000px;
+	height: 550px;
 	overflow-y: auto;
 	float: left;
 }
 
 .area-principal{
 	width: 80%;
-	height: 700px;
+	height: 550px;
 	margin: 90px auto 10px auto;
 	display: table;
-	border: 2px solid #000;
 	
 }
 
