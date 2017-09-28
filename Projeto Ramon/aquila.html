@@ -40,7 +40,7 @@
                 "<option value='campoTexto' id='campoTexto"+cont+"' name='campoTexto"+cont+"'>Campo de Texto</option>" +
                 "<option value='campoRadio' id='campoRadio"+cont+"' name='campoRadio"+cont+"'>Multipla Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao"+cont+"' name='campoSelecao"+cont+"'>Caixas de Seleção</option>" +
-                "<option value='caixaSelecao' id='caixaSelecao"+cont+"' name='caixaSelecao"+cont+"'>Opção unica variada</option>" +
+                "<option value='caixaSelecao' id='caixaSelecao"+cont+"' name='caixaSelecao"+cont+"'>Escolha variada</option>" +
                 "</select></div>";
                 $("#base").append(arrayConteudo[cont]);
                 $('#contador').val(cont);
@@ -74,7 +74,8 @@
 					"<option value='campoTexto' id='campoTexto"+i+"' name='campoTexto"+i+"' selected='selected'>Campo de texto</option>" +
 					"<option value='campoRadio' id='campoRadio"+i+"' name='campoRadio"+i+"'>Múltipla Escolha</option>" +
 					"<option value='campoSelecao' id='campoSeleca"+i+"o' name='campoSelecao"+i+"'>Caixas de Seleção</option>" +
-					"</select> <input type='text' name='campo-de-texto"+i+"' placeholder='Resposta' id='campo-de-texto"+i+"' class='hide' value=''></div>";
+					"<option value='caixaSelecao' id='caixaSelecao"+i+"' name='caixaSelecao"+i+"'>Escolha variada</option>" +
+                    "</select> <input type='text' name='campo-de-texto"+i+"' placeholder='Resposta' id='campo-de-texto"+i+"' class='hide' value=''></div>";
 			 }			
 			 
 			 else if(recebeInput == "campoRadio")
@@ -85,6 +86,7 @@
                 "<option value='campoTexto' id='campoTexto"+i+"' name='campoTexto"+i+"'>Campo de texto</option>" +
                 "<option value='campoRadio' id='campoRadio"+i+"' name='campoRadio"+i+"' selected='selected'>Múltipla Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao"+i+"' name='campoSelecao"+i+"'>Caixas de Seleção</option>" +
+                "<option value='caixaSelecao' id='caixaSelecao"+i+"' name='caixaSelecao"+i+"'>Escolha variada</option>" +
                 "</select><br>";
 			 
 			 var quantidade = prompt("Digite a quantidade de opções:");
@@ -107,6 +109,7 @@
                 "<option value='campoTexto' id='campoTexto"+i+"' name='campoTexto"+i+"'>Campo de texto</option>" +
                 "<option value='campoRadio' id='campoRadio"+i+"' name='campoRadio"+i+"'>Múltipla Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao"+i+"' name='campoSelecao"+i+"' selected='selected'>Caixas de Seleção</option>" +
+                "<option value='caixaSelecao' id='caixaSelecao"+i+"' name='caixaSelecao"+i+"'>Escolha variada</option>" +
                 "</select><br>";
 
                 var quantidade = prompt("Digite a quantidade de opções:");
@@ -121,6 +124,31 @@
              arrayConteudo[i] = fecharDiv2;
 			 			 
 			 }
+
+             else if(recebeInput == "caixaSelecao")
+             {
+             arrayConteudo[i] = "<div class='questoes' id='divPergunta"+i+"'><input type='text' name='pergunta"+i+"' id='pergunta"+i+"' placeholder='Pergunta'>" +
+                "<select name='selecionar"+i+"' id='selecionar"+i+"'>" +
+                "<option value='tipoResposta'>Tipo de resposta</option>" +
+                "<option value='campoTexto' id='campoTexto"+i+"' name='campoTexto"+i+"'>Campo de texto</option>" +
+                "<option value='campoRadio' id='campoRadio"+i+"' name='campoRadio"+i+"' selected='selected'>Múltipla Escolha</option>" +
+                "<option value='campoSelecao' id='campoSelecao"+i+"' name='campoSelecao"+i+"'>Caixas de Seleção</option>" +
+                "<option value='caixaSelecao' id='caixaSelecao"+i+"' name='caixaSelecao"+i+"'>Escolha variada</option>" +
+                "</select><br>" +
+                 "<select>";
+
+                var quantidade = prompt("Digite a quantidade de opções para o campo de selecao:");
+             for(var z = 0; z < quantidade; z++)
+             {
+             var valorMaisPlus = z + 1;
+             var nomeSelect = prompt("Escreva o valor de cada: " + valorMaisPlus);
+             var valorSelect = arrayConteudo[i] + "<option name='option"+i+"' value='"+nomeSelect+"'>"+nomeSelect+"<br>";
+             arrayConteudo[i] = valorSelect;
+             }
+             var fecharDiv3 = arrayConteudo[i] + "</select></div>";
+             arrayConteudo[i] = fecharDiv3;
+
+            }
 			 
 			 else if(recebeInput == "tipoResposta")
 			 {
@@ -130,6 +158,7 @@
                 "<option value='campoTexto' id='campoTexto"+i+"' name='campoTexto"+i+"'>Campo de texto</option>" +
                 "<option value='campoRadio' id='campoRadio"+i+"' name='campoRadio"+i+"'>Múltipla Escolha</option>" +
                 "<option value='campoSelecao' id='campoSelecao"+i+"' name='campoSelecao"+i+"' >Caixas de Seleção</option>" +
+                "<option value='caixaSelecao' id='caixaSelecao"+i+"' name='caixaSelecao"+i+"'>Escolha variada</option>" +
                 "</select></div>";
 			 			 
 			 }
