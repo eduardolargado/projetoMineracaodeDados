@@ -52,6 +52,7 @@ CREATE TABLE `questions` (
   `question_id` int(11) NOT NULL AUTO_INCREMENT,
   `question_text` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `question_form` int(11) NOT NULL,
+  `question_type` int(11) NOT NULL,
   PRIMARY KEY (`question_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
